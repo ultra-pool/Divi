@@ -1,0 +1,54 @@
+trusty linux beta install
+
+git clone https://github.com/Divicoin/Divi.git
+
+#install dependencies
+
+sudo apt-get --no-install-recommends -yq install software-properties-common
+
+add-apt-repository ppa:bitcoin/bitcoin 
+
+sudo apt-get update
+
+sudo apt-get --no-install-recommends -yq install \
+dos2unix \
+locales \
+git-core \
+curl \
+build-essential \
+ca-certificates \
+ruby \
+rsync \
+dos2unix \
+wget \
+libdb4.8-dev \
+libdb4.8++-dev \
+libboost-all-dev \
+libssl-dev \
+libevent-dev \
+locales \
+git-core \
+build-essential \
+ca-certificates \
+autoconf \
+automake \
+pkg-config \
+libtool \
+autotools-dev \
+bsdmainutils \
+ruby \
+sudo \
+tor \
+net-tools
+
+# install from the git repo source
+cd Divi/divi
+./autogen.sh
+./configure --without-gui
+make
+sudo make install
+divid
+cp ~/divi.conf ~/.divi/divi.conf
+divid
+# divi-cli getblockchaininfo should return blockchain info
+# divi-cli help should show cli commands
